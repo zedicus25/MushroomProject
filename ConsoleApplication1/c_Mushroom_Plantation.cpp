@@ -2,9 +2,7 @@
 #include <iostream>
 c_Mushroom_Plantation::c_Mushroom_Plantation()
 {
-	this->size = 0;
 	this->mushrooms = nullptr;
-	this->count_mushrooms = 0;
 	this->max_count_mushrooms = 0;
 }
 
@@ -22,7 +20,6 @@ void c_Mushroom_Plantation::deletePlantation()
 {
 	if (this->mushrooms != nullptr) {
 		free(mushrooms);
-		this->mushrooms = nullptr;
 		std::cout << "Plantation deleted\n";
 	}
 }
@@ -31,7 +28,7 @@ void c_Mushroom_Plantation::plantMushroom(int id)
 {
 	if (this->mushrooms != nullptr)
 	{
-		if (id <= this->max_count_mushrooms) {
+		if (id < this->max_count_mushrooms && id >= 0) {
 			char name[30];
 			bool edible;
 			int time_to_full_grow;
@@ -80,7 +77,7 @@ void c_Mushroom_Plantation::pickMushroom(int id)
 {
 	if (this->mushrooms != nullptr)
 	{
-		if (id <= this->max_count_mushrooms) {
+		if (id < this->max_count_mushrooms && id >= 0) {
 			if (this->mushrooms[id].hasGrown()) {
 				std::cout << "Mushroom pick up\n";
 				this->mushrooms[id].setDefault();
@@ -98,6 +95,7 @@ void c_Mushroom_Plantation::pickMushroom(int id)
 void c_Mushroom_Plantation::printPlantationInfo()
 {
 	if (this->mushrooms != nullptr) {
+		std::cout << "Name" << " " << "Weight" << " " << "Edible\n";
 		for (int i = 0; i < this->max_count_mushrooms; i++)
 		{
 			if (strcmp(this->mushrooms[i].getName(),"default")==0)
@@ -131,7 +129,7 @@ void c_Mushroom_Plantation::growMushroom(int id)
 {
 	if (this->mushrooms != nullptr)
 	{
-		if (id <= this->max_count_mushrooms) {
+		if (id < this->max_count_mushrooms && id >= 0) {
 			if (!this->mushrooms[id].hasGrown()) {
 				std::cout << "Mushroom start grow\n";
 				this->mushrooms[id].grow();
