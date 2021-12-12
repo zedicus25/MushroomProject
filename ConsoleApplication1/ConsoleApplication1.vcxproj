@@ -141,9 +141,11 @@
   <ItemGroup>
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="c_Mushroom.cpp" />
+    <ClCompile Include="c_Mushroom_Plantation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="c_Mushroom.h" />
+    <ClInclude Include="c_Mushroom_Plantation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

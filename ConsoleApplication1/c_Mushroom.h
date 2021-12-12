@@ -50,15 +50,13 @@ public:
 
 	void grow();
 	void print();
+	void setMushroom(const char* name, float weight, bool edible, int time_to_full_growth, int current_time, int grow_step, int grow_delay);
+	void setDefault();
 		
 
 	inline bool hasGrown() const {
 		return this->current_time >= this->time_to_full_growth;
 	}
 
-	~c_Mushroom()
-	{
-		delete[] name;
-	}
 };
 
